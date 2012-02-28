@@ -10,16 +10,13 @@ Provides Drupal API within your Symfony2 project.
 Requirements
 ---------------------
 
-* [Drupal 6.22](https://github.com/drupal/drupal/tree/6.22) "Drupal 6.22 on Github") (not tested with later versions)
+* [Drupal 6.22](https://github.com/drupal/drupal/tree/6.22 "Drupal 6.22 on Github") (not tested with later versions)
 
 
 Installation
 ---------------------
 
 ### Download FlochDrupalBundle and add Drupal 6.22 to your vendors
-
-Files should be downloaded to 
-`vendor/bundles/Floch/DrupalBundle` directory.
 
 Here are two different method to achieve this:
 
@@ -35,6 +32,7 @@ Add the following lines in your `deps` file:
 [Drupal]
     git=git://github.com/drupal/drupal.git
     target=Drupal/Drupal
+    version=6.22
 ```
 
 Now, run the vendors script to download the bundle alongside with Drupal:
@@ -42,6 +40,7 @@ Now, run the vendors script to download the bundle alongside with Drupal:
 ``` bash
 $ php bin/vendors install
 ```
+
 
 **Using submodules**
 
@@ -85,6 +84,7 @@ public function registerBundles()
 }
 ```
 
+
 ### Configure your Drupal installation
 
 Add the following configuration to your parameters.ini file, replacing values with your settings:
@@ -93,4 +93,14 @@ Add the following configuration to your parameters.ini file, replacing values wi
 drupal_path       = /your/drupal/installation/path
 drupal_db_url     = mysqli://user@host/dbname
 drupal_db_prefix  = tablesPrefix_
+```
+
+
+### Add default routes to your routing file
+
+Add the following lines to your routing.yml file:
+
+```yaml
+  FlochDrupalBundle:
+      resource: "@FlochDrupalBundle/Resources/config/routing.yml"
 ```
