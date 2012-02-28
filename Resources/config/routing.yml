@@ -1,0 +1,13 @@
+nodes:
+  pattern: /nodes/{type}
+  defaults:
+    _controller: "FlochDrupalBundle:Base:nodeList"
+    _format: json
+    _method: GET
+
+node:
+  pattern: /node/{nid}
+  defaults:
+    _controller: "FlochDrupalBundle:Base:nodeLoad"
+    _format: json
+    _method: GET
